@@ -38,7 +38,7 @@
     "loader.js": "^4.0.1",
     "nullbase-basic-layout": "https://github.com/nullrocket/nullbase-basic-layout.git#0.0.0-alpha",
     "nullbase-button": "https://github.com/nullrocket/nullbase-button.git#0.0.0-alpha",
-    "nullbase-checkbox": "*"
+    "nullbase-checkbox": "https://github.com/nullrocket/nullbase-checkbox.git#0.0.0-alpha"
   },
   "keywords": [
     "ember-addon"
@@ -47,7 +47,7 @@
     "ember-cli-babel": "^5.1.6",
     "ember-cli-htmlbars": "^1.0.3",
     "ember-cli-less": "1.5.3",
-    "nullbase-gestures": "*",
+    "nullbase-gestures": "https://github.com/nullrocket/nullbase-gestures.git#0.0.0-alpha",
     "nullbase-theme-service": "*",
     "ember-browserify": "^1.1.13",
     "lodash": "^4.16.3"
