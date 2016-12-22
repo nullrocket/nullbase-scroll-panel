@@ -1,0 +1,11 @@
+<div class="scroll-panel-content" touch-action="{{touchAction}}">
+    {{yield}}
+</div>
+
+{{#if scrollBar}}
+    <div class="ember-list-view-scrollbar">
+        <div class="ember-list-view-scroll-rail">
+            <div class="ember-list-view-scrollbar-knob"></div>
+        </div>
+    </div>
+{{/if}}

@@ -1,0 +1,60 @@
+<div style="position: absolute;
+    display: flex;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    flex-direction: column;
+    bottom: 0px;">
+  <div style="position:relative;width:100%">
+    <div class="grey-panel">
+      <div class="grey-panel-inner" style="    display: flex;
+    flex-wrap: wrap;">
+
+          {{nb-checkbox label="ScrollingX" checked=appState.scrollingX  on-tap=(route-action "toggleScrollingX")}}
+
+          {{nb-checkbox label="ScrollingY" checked=appState.scrollingY on-tap=(route-action "toggleScrollingY")  }}
+          {{nb-checkbox label="Animating" checked=appState.animating  on-tap=(route-action "toggleAnimating") }}
+
+          {{nb-checkbox label="Bouncing" checked=appState.bouncing  on-tap=(route-action "toggleBouncing") }}
+          {{nb-checkbox label="Locking" checked=appState.locking  on-tap=(route-action "toggleLocking") }}
+        {{nb-checkbox label="Paging" checked=appState.paging  on-tap=(route-action "togglePaging") }}
+          {{nb-checkbox label="Zooming" checked=appState.zooming on-tap=(route-action "toggleZooming") }}
+        {{nb-checkbox label="Native Scroll" checked=appState.useNativeScroll on-tap=(route-action "toggleUseNativeScroll") }}
+
+        </div>
+
+
+
+    </div>
+  </div>
+  <div style="position:relative;flex-grow:1;width:100%">
+    {{#nb-scroll-panel
+    scrollingX= appState.scrollingX
+    scrollingY= appState.scrollingY
+    animating=appState.animating
+    bouncing  = appState.bouncing
+    locking = appState.locking
+    paging= appState.paging
+    snapping= appState.snapping
+    zooming=appState.zooming
+      useNativeScroll=appState.useNativeScroll
+    }}
+        <div style="    display: flex;
+    flex-flow: row;
+    flex-direction: column;">
+
+      {{#each boxes as |row index|}}
+        <div style="display:flex;">
+        {{#each row as |cell| }}
+            <div class="boxes elevation-2dp">{{index}},{{cell}}</div>
+        {{/each}}
+        </div>
+      {{/each}}
+
+
+
+
+      </div>
+    {{/nb-scroll-panel}}
+  </div>
+</div>
