@@ -1,6 +1,6 @@
 {
   "name": "nullbase-scroll-panel",
-  "version": "0.0.3-alpha",
+  "version": "0.0.4-alpha",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
     "doc": "doc",
@@ -47,8 +47,8 @@
     "ember-cli-babel": "^5.1.6",
     "ember-cli-htmlbars": "^1.0.3",
     "ember-cli-less": "1.5.3",
-    "nullbase-gestures": "https://github.com/nullrocket/nullbase-gestures.git#0.0.0-alpha",
-    "nullbase-theme-service": "https://github.com/nullrocket/nullbase-theme-service.git#0.0.3-alpha",
+    "nullbase-gestures": "https://github.com/nullrocket/nullbase-gestures.git",
+    "nullbase-theme-service": "https://github.com/nullrocket/nullbase-theme-service.git",
     "ember-browserify": "^1.1.13",
     "lodash": "^4.16.3"
   },
