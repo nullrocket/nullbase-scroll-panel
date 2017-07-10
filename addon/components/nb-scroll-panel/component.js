@@ -207,7 +207,7 @@ export default Ember.Component.extend({
 
 
         $elementC.on("mousewheel DOMMouseScroll", function ( event ) {
-
+        console.log('mouse scroll')
           event.preventDefault();
           event.stopPropagation();
           var delta = -wheelDistance(event);
