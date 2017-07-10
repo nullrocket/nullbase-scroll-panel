@@ -527,7 +527,7 @@ var Scroller = function(callback, options) {
 		 * @param zoom {Number?null} Zoom level to go to
 		 */
 		scrollTo: function(left, top, animate, zoom) {
-
+console.log('inside the things',...arguments);
 			var self = this;
 
 			// Stop deceleration
@@ -595,9 +595,10 @@ var Scroller = function(callback, options) {
 			}
 
 			// Publish new values
-			if (!self.__isTracking) {
+
+		//	if (!self.__isTracking) {
         self.__publish(left, top, zoom, animate);
-      }
+      //}
 
 		},
 

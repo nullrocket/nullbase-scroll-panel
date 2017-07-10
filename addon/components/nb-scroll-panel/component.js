@@ -26,7 +26,7 @@ var wheelDistance = function ( evt ) {
 };
 
 
-function makeRAFJS(  contentElement, scrollLeft, scrollTop, scrollKnob, pos ,hasScrollBar) {
+function makeRAFJS( contentElement, scrollLeft, scrollTop, scrollKnob, pos, hasScrollBar ) {
   return function () {
 
     contentElement.style[ "transform" ] = 'translate3d(' + -(scrollLeft) + 'px, ' + -(scrollTop) + 'px, 0)';
@@ -35,9 +35,6 @@ function makeRAFJS(  contentElement, scrollLeft, scrollTop, scrollKnob, pos ,has
     }
   };
 }
-
-
-
 
 
 export default Ember.Component.extend({
@@ -92,7 +89,7 @@ export default Ember.Component.extend({
       Ember.run.scheduleOnce('afterRender', function () {
         var xTop = self.$().scrollTop();
         var xLeft = self.$().scrollLeft();
-        let contentElement =self.$('.scroll-panel-content')
+        let contentElement = self.$('.scroll-panel-content')
         self.$().scrollTop(0);
         self.$().scrollLeft(0);
         contentElement.scrollTop(0);
@@ -101,14 +98,16 @@ export default Ember.Component.extend({
 
 
         var render = function ( scrollLeft, scrollTop /*, zoom*/ ) {
-          if ( !self.get('isDestroyed')) {
-//            self.set('scrollTop', scrollTop);
+
+          if ( !self.get('isDestroyed') ) {
+
+            //            self.set('scrollTop', scrollTop);
             var contentHeight = contentElement.height();
             var viewPortHeight = self.get('height');
 
             var pos = Math.max(0, (scrollTop ) / ((contentHeight - viewPortHeight) / (viewPortHeight - scrollKnob.height())));
-            pos = Math.min(pos, (viewPortHeight - scrollKnob.height()),viewPortHeight);
-            var raf = makeRAFJS(contentElement.get(0), scrollLeft, scrollTop, scrollKnob, pos,self.get('scrollBar'));
+            pos = Math.min(pos, (viewPortHeight - scrollKnob.height()), viewPortHeight);
+            var raf = makeRAFJS(contentElement.get(0), scrollLeft, scrollTop, scrollKnob, pos, self.get('scrollBar'));
             window.requestAnimationFrame(raf);
           }
 
@@ -207,7 +206,7 @@ export default Ember.Component.extend({
 
 
         $elementC.on("mousewheel DOMMouseScroll", function ( event ) {
-        console.log('mouse scroll')
+
           event.preventDefault();
           event.stopPropagation();
           var delta = -wheelDistance(event);
@@ -217,20 +216,24 @@ export default Ember.Component.extend({
           if ( -finalScroll > 0 ) {
             finalScroll = 0;
           }
-      console.log('going to set final scroll: ',Math.abs(finalScroll) > $elementC.height() - self.get('height'));
+
 
           if ( Math.abs(finalScroll) > $elementC.height() - self.get('height') ) {
             finalScroll = ($elementC.height() - self.get('height'));
-            console.log('finalScroll');
-          }
-console.log('scroller final scroll',finalScroll);
-          scroller.scrollTo(scroller.getValues().left, finalScroll);
 
-     //     if ( Math.abs(self.get('lastScrollPosition') - finalScroll) > 50 ) {
-            console.log('in here?')
-            self.set('scrollTop', finalScroll);
-            self.set('lastScrollPosition', finalScroll);
-       //   }
+          }
+
+
+            scroller.scrollTo(scroller.getValues().left, finalScroll);
+
+
+
+               if ( Math.abs(self.get('lastScrollPosition') - finalScroll) > 50 ) {
+
+
+          self.set('scrollTop', finalScroll);
+          self.set('lastScrollPosition', finalScroll);
+             }
 
 
         });
@@ -388,8 +391,7 @@ console.log('scroller final scroll',finalScroll);
   didReceiveAttrs() {
     this._super(...arguments);
     if ( this.get('scroller') ) {
-      console.log(this.get('scroller'));
-      console.log(this.get('scroller').options);
+
       let scroller = this.get('scroller');
       scroller.options.scrollingX = this.get('scrollingX');
       scroller.options.scrollingY = this.get('scrollingY');
