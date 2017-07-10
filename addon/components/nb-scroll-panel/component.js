@@ -89,7 +89,7 @@ export default Ember.Component.extend({
       Ember.run.scheduleOnce('afterRender', function () {
         var xTop = self.$().scrollTop();
         var xLeft = self.$().scrollLeft();
-        let contentElement = self.$('.scroll-panel-content')
+        let contentElement = self.$('.scroll-panel-content');
         self.$().scrollTop(0);
         self.$().scrollLeft(0);
         contentElement.scrollTop(0);
@@ -244,7 +244,8 @@ export default Ember.Component.extend({
     // remove javascript scrolling and set up native scrolling.
 
     else {
-
+      let $elementC = self.$('.scroll-panel-content');
+      $elementC.off("mousewheel DOMMouseScroll");
       self.set('scrollBar', false);
       if ( this.get('scroller') ) {
         delete   self.get('scroller').__callback;
