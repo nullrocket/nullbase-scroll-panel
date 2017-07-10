@@ -226,11 +226,11 @@ export default Ember.Component.extend({
 console.log('scroller final scroll',finalScroll);
           scroller.scrollTo(scroller.getValues().left, finalScroll);
 
-          if ( Math.abs(self.get('lastScrollPosition') - finalScroll) > 50 ) {
+     //     if ( Math.abs(self.get('lastScrollPosition') - finalScroll) > 50 ) {
             console.log('in here?')
             self.set('scrollTop', finalScroll);
             self.set('lastScrollPosition', finalScroll);
-          }
+       //   }
 
 
         });
