@@ -217,11 +217,13 @@ export default Ember.Component.extend({
           if ( -finalScroll > 0 ) {
             finalScroll = 0;
           }
+      console.log('going to set final scroll: ',Math.abs(finalScroll) > $elementC.height() - self.get('height'));
 
           if ( Math.abs(finalScroll) > $elementC.height() - self.get('height') ) {
             finalScroll = ($elementC.height() - self.get('height'));
+            console.log('finalScroll');
           }
-
+console.log('scroller getValues left',scroller.getValues().left);
           scroller.scrollTo(scroller.getValues().left, finalScroll);
 
           if ( Math.abs(self.get('lastScrollPosition') - finalScroll) > 50 ) {
