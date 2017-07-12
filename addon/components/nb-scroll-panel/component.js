@@ -256,7 +256,7 @@ export default Ember.Component.extend({
         if ( self.$('.scroll-panel-content').get(0) ) {
           let $elementC = self.$('.scroll-panel-content');
           $elementC.off("mousewheel DOMMouseScroll");
-          $elementC.$('.scroll-panel-content').get(0).style[ "transform" ] = 'translate3d(0px, 0px, 0)';
+          $elementC.get(0).style[ "transform" ] = 'translate3d(0px, 0px, 0)';
 
         }
       });
